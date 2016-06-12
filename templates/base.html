@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load staticfiles %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+  
+    <title>Share It</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <!--external css-->
+    <link href="{% static 'font-awesome/css/font-awesome.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{% static 'lineicons/style.css' %}">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style-responsive.css' %}" rel="stylesheet">
+  </head>
+
+  <body>
+
+  <section id="container" >
+      <!-- **********************************************************************************************************************************************************
+      TOP BAR CONTENT & NOTIFICATIONS
+      *********************************************************************************************************************************************************** -->
+      <!--header start-->
+      <header class="header black-bg">
+              <div class="sidebar-toggle-box">
+                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+              </div>
+            <!--logo start-->
+            <a href="#" class="logo"><b>Share It</b></a>
+            <!--logo end-->
+            <div class="nav notify-row" id="top_menu">
+                <!--  notification start -->
+                <ul class="nav top-menu">
+                    <!-- inbox dropdown start-->
+                    <li id="header_inbox_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="badge bg-theme">5</span>
+                        </a>
+                        <ul class="dropdown-menu extended inbox">
+                            <div class="notify-arrow notify-arrow-green"></div>
+                            <li>
+                                <p class="green">You have 5 new messages</p>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <!-- <span class="photo"><img alt="avatar" src="{% static 'img/ui-zac.jpg' %}"></span> -->
+                                    <span class="subject">
+                                    <span class="from">Zac Snider</span>
+                                    <span class="time">Just now</span>
+                                    </span>
+                                    <span class="message">
+                                        Hi mate, how is everything?
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="subject">
+                                    <span class="from">Divya Manian</span>
+                                    <span class="time">40 mins.</span>
+                                    </span>
+                                    <span class="message">
+                                     Hi, I need your help with this.
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="subject">
+                                    <span class="from">Dan Rogers</span>
+                                    <span class="time">2 hrs.</span>
+                                    </span>
+                                    <span class="message">
+                                        Love your new Dashboard.
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <!-- <span class="photo"><img alt="avatar" src="{% static 'img/ui-sherman.jpg' %}"></span> -->
+                                    <span class="subject">
+                                    <span class="from">Dj Sherman</span>
+                                    <span class="time">4 hrs.</span>
+                                    </span>
+                                    <span class="message">
+                                        Please, answer asap.
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">See all messages</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- inbox dropdown end -->
+                </ul>
+                <!--  notification end -->
+            </div>
+            <div class="top-menu">
+            	<ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="/login">Logout</a></li>
+            	</ul>
+            </div>
+        </header>
+      <!--header end-->
+
+      <!-- **********************************************************************************************************************************************************
+      MAIN SIDEBAR MENU
+      *********************************************************************************************************************************************************** -->
+      <!--sidebar start-->
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion">
+
+              	  <p class="centered"><a href="#"><img src="{% static 'img/shubham.jpg' %}" class="img-circle" width="60"></a></p>
+              	  <h5 class="centered">Shubham Saxena</h5>
+
+                  <li class="mt">
+                      <a class="active" href="#">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Dashboard</span>
+                      </a>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-desktop"></i>
+                          <span>UI Elements</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="#">General</a></li>
+                          <li><a  href="#">Buttons</a></li>
+                          <li><a  href="#">Panels</a></li>
+                      </ul>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-cogs"></i>
+                          <span>Components</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="#">Calendar</a></li>
+                          <li><a  href="#">Gallery</a></li>
+                          <li><a  href="#">Todo List</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-book"></i>
+                          <span>Extra Pages</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="#">Blank Page</a></li>
+                          <li><a  href="#">Login</a></li>
+                          <li><a  href="#">Lock Screen</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-tasks"></i>
+                          <span>Forms</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="#">Form Components</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-th"></i>
+                          <span>Data Tables</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="#">Basic Table</a></li>
+                          <li><a  href="#">Responsive Table</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class=" fa fa-bar-chart-o"></i>
+                          <span>Charts</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="#">Morris</a></li>
+                          <li><a  href="#">Chartjs</a></li>
+                      </ul>
+                  </li>
+
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->
+
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+            {% block middle_block %}
+
+            {% endblock %}
+
+            {% block right_block %}
+
+            {% endblock %}
+          </section>
+      </section>
+
+      <!--main content end-->
+  </section>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/jquery-1.8.3.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script class="include" type="text/javascript" src="{% static 'js/jquery.dcjqaccordion.2.7.js' %}"></script>
+    <script src="{% static 'js/jquery.scrollTo.min.js' %}"></script>
+    <script src="{% static 'js/jquery.nicescroll.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/jquery.sparkline.js' %}"></script>
+
+
+    <!--common script for all pages-->
+    <script src="{% static 'js/common-scripts.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'js/gritter/js/jquery.gritter.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/gritter-conf.js' %}"></script>
+
+  </body>
+</html>
