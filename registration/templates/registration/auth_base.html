@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    {% load staticfiles %}
+    <head>
+        <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+        <link href="{% static 'font-awesome/css/font-awesome.css' %}" rel="stylesheet" />
+        <!-- Custom styles for this template -->
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+        <link href="{% static 'css/style-responsive.css' %}" rel="stylesheet">
+        {% load crispy_forms_tags %}
+        {% block head_block %}
+        {% endblock head_block %}
+    </head>
+    <body>
+        {% block navbar %}
+        {% endblock navbar%}
+
+        {% block container %}
+        <div class="container form-login">
+          <div class="text-center">
+            <h2 class="form-login-heading">{% block title %}{% endblock %}</h2>
+          </div>
+          {% block content %}
+          {% endblock %}
+        </div>
+
+        {% endblock container %}
+    </body>
+</html>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/jquery-1.8.3.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.backstretch.min.js' %}"></script>
+<script>
+    $.backstretch("{% static 'img/login-bg-2.jpg' %}", {speed: 500});
+</script>
