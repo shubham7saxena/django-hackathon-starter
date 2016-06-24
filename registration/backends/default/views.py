@@ -56,7 +56,7 @@ class RegistrationView(BaseRegistrationView):
     fields and supported operations.
 
     """
-    SEND_ACTIVATION_EMAIL = getattr(settings, 'SEND_ACTIVATION_EMAIL', True)
+    SEND_ACTIVATION_EMAIL = getattr(settings, 'SEND_ACTIVATION_EMAIL', False)
     success_url = 'registration_complete'
 
     def register(self, form):

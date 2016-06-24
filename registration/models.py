@@ -105,7 +105,8 @@ class RegistrationManager(models.Manager):
             password = user_info.pop('password')
             new_user = UserModel()(**user_info)
             new_user.set_password(password)
-        new_user.is_active = False
+        new_user.is_active = True
+        # set it to false to send email activation
 
         # Since we calculate the RegistrationProfile expiration from this date,
         # we want to ensure that it is current
@@ -241,7 +242,7 @@ class RegistrationProfile(models.Model):
         verbose_name_plural = _('registration profiles')
 
     def __str__(self):
-        return "Registration information for %s" % self.user
+        return str(self.user)
 
     def create_new_activation_key(self, save=True):
         """
