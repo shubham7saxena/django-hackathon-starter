@@ -39,18 +39,6 @@ class RegistrationForm(UserCreationForm):
         model = User
         fields = (UsernameField(), "email")
 
-
-class RegistrationFormTermsOfService(RegistrationForm):
-    """
-    Subclass of ``RegistrationForm`` which adds a required checkbox
-    for agreeing to a site's Terms of Service.
-
-    """
-    tos = forms.BooleanField(widget=forms.CheckboxInput,
-                             label=_('I have read and agree to the Terms of Service'),
-                             error_messages={'required': _("You must agree to the terms to register")})
-
-
 class RegistrationFormUniqueEmail(RegistrationForm):
     """
     Subclass of ``RegistrationForm`` which enforces uniqueness of

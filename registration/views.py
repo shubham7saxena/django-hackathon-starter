@@ -23,7 +23,6 @@ class RegistrationView(FormView):
     Base class for user registration views.
 
     """
-    disallowed_url = 'registration_disallowed'
     form_class = REGISTRATION_FORM
     http_method_names = ['get', 'post', 'head', 'options', 'trace']
     success_url = None
@@ -31,13 +30,6 @@ class RegistrationView(FormView):
 
     @method_decorator(sensitive_post_parameters('password1', 'password2'))
     def dispatch(self, request, *args, **kwargs):
-        """
-        Check that user signup is allowed before even bothering to
-        dispatch or do other processing.
-
-        """
-        if not self.registration_allowed():
-            return redirect(self.disallowed_url)
         return super(RegistrationView, self).dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
@@ -54,14 +46,6 @@ class RegistrationView(FormView):
         else:
             return redirect(to, *args, **kwargs)
 
-    def registration_allowed(self):
-        """
-        Override this to enable/disable user registration, either
-        globally or on a per-request basis.
-
-        """
-        return True
-
     def register(self, form):
         """
         Implement user-registration logic here.
@@ -75,65 +59,3 @@ class RegistrationView(FormView):
 
         """
         return super(RegistrationView, self).get_success_url()
-
-
-class ActivationView(TemplateView):
-    """
-    Base class for user activation views.
-
-    """
-    http_method_names = ['get']
-    template_name = 'registration/activate.html'
-
-    def get(self, request, *args, **kwargs):
-        activated_user = self.activate(*args, **kwargs)
-        if activated_user:
-            success_url = self.get_success_url(activated_user)
-            try:
-                to, args, kwargs = success_url
-            except ValueError:
-                return redirect(success_url)
-            else:
-                return redirect(to, *args, **kwargs)
-        return super(ActivationView, self).get(request, *args, **kwargs)
-
-    def activate(self, *args, **kwargs):
-        """
-        Implement account-activation logic here.
-
-        """
-        raise NotImplementedError
-
-    def get_success_url(self, user):
-        raise NotImplementedError
-
-
-class ResendActivationView(FormView):
-    """
-    Base class for resending activation views.
-    """
-    form_class = ResendActivationForm
-    template_name = 'registration/resend_activation_form.html'
-
-    def form_valid(self, form):
-        """
-        Regardless if resend_activation is successful, display the same
-        confirmation template.
-
-        """
-        self.resend_activation(form)
-        return self.render_form_submitted_template(form)
-
-    def resend_activation(self, form):
-        """
-        Implement resend activation key logic here.
-
-        """
-        raise NotImplementedError
-
-    def render_form_submitted_template(self, form):
-        """
-        Implement rendering of confirmation template here.
-
-        """
-        raise NotImplementedError

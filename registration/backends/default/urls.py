@@ -16,21 +16,13 @@ from django.conf.urls import url
 from django.conf import settings
 from django.views.generic.base import TemplateView
 
-from .views import ActivationView
 from .views import RegistrationView
-from .views import ResendActivationView
 
 
 urlpatterns = [
-    url(r'^activate/(?P<activation_key>\w+)/$',
-        ActivationView.as_view(),
-        name='registration_activate'),
     url(r'^register/complete/$',
         TemplateView.as_view(template_name='registration/registration_complete.html'),
         name='registration_complete'),
-    url(r'^register/closed/$',
-        TemplateView.as_view(template_name='registration/registration_closed.html'),
-        name='registration_disallowed'),
 ]
 
 if getattr(settings, 'INCLUDE_REGISTER_URL', True):
