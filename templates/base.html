@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Dashboard">
-  
+
     <title>Share It</title>
 
     <!-- Bootstrap core CSS -->
@@ -21,7 +21,7 @@
   </head>
 
   <body>
-
+  {% load gravatar %}
   <section id="container" >
       <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
@@ -119,8 +119,7 @@
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
-
-              	  <p class="centered"><a href="#"><img src="{% static 'img/shubham.jpg' %}" class="img-circle" width="60"></a></p>
+              	  <p class="centered"><a href="#"><img src="{% gravatar_url user.email%}" class="img-circle" width="60"></a></p>
               	  <h5 class="centered">Shubham Saxena</h5>
 
                   <li class="mt">

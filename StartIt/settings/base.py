@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'easy_thumbnails',
     'registration',
+    'django_gravatar',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -122,6 +123,7 @@ USE_TZ = True
 
 
 REGISTRATION_AUTO_LOGIN = True # Automatically log the user in.
+LOGIN_REDIRECT_URL = '/'
 
 STATIC_URL = '/static/'
 

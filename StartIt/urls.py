@@ -5,21 +5,15 @@ from django.conf.urls.static import static
 from . import views
 from django.contrib.auth import views as auth_views
 from django.views.generic import TemplateView
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'StartIt.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-    url(r'^$', views.HomePage.as_view(), name='home'),
+    url(r'^$', login_required(views.HomePage.as_view())),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$',
-        TemplateView.as_view(template_name='index.html'),
-        name='index'),
-
     url(r'^accounts/',
         include('registration.backends.default.urls')),
 
-    url(r'^accounts/profile/',
+    url(r'^accounts/profile',
         TemplateView.as_view(template_name='profile.html'),
         name='profile'),
 
