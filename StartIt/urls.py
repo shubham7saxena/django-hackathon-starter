@@ -6,12 +6,14 @@ from . import views
 from django.contrib.auth import views as auth_views
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
+from material.frontend import urls as frontend_urls
 
 urlpatterns = patterns('',
     url(r'^$', login_required(views.HomePage.as_view())),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/',
         include('registration.backends.default.urls')),
+    url(r'', include(frontend_urls)),
 
     url(r'^accounts/profile',
         TemplateView.as_view(template_name='profile.html'),
